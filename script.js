@@ -7,6 +7,8 @@ fetch('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/maste
     height: 500,
     margin: '0 auto',
     display: 'block',
+    border: '1px solid black',
+    bgColor: '#6fe2f7'
   }
   var svg = d3.select('body').append('svg')
 
@@ -24,6 +26,8 @@ fetch('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/maste
       .style('height', config.height)
       .style('margin', config.margin)
       .style('display', config.display)
+      .style('border', config.border)
+      .style('background-color', config.bgColor)
       .append('path')
       .attr('d', path(geojson))
   })
