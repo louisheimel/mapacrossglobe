@@ -29,15 +29,24 @@ fetch('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/maste
     const scaleFactorLinear = () => d.properties.mass
     return path.pointRadius(scaleFactorLog)(d)
   }
+  
+  const makeInfoString = (e) => {
+    return 'fall: ' + e.properties.fall + '\n' +
+               'mass: ' + e.properties.mass +'\n' +
+               'nametype: ' + e.properties.nametype + '\n' +
+               'recclass: ' + e.properties.recclass + '\n' +
+               'reclat: ' + e.properties.reclat + '\n' + 
+               'year: ' + e.properties.year
+  }
 
   const meteoriteInfo = (() => {
     const meteoriteInfoBox = d3.select("body").append("div")
+                                .style('font-size', '12px')
                                 .style("display", "none");
 
     const showMeteoriteInfo = (e) => {
-      console.log(e)
       meteoriteInfoBox.style('display', 'block')
-         .text('hello')
+        .text(makeInfoString(e))
          .style("left", (d3.event.pageX + 20) + "px")
          .style("top", (d3.event.pageY - 40) + "px")
          .style('position', 'absolute')
